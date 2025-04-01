@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+#define PRODUCTOS 4
+int main(){
+int cantidad,opcion;
+float precio,suma=0;
+char codigo [20];
+do
+{
+    printf("MENU\n");
+    printf("1.TOTAL DE VENTAS\n");
+    printf("2.MAYOR CANTIDAD VENDIDA\n");
+    printf("3.PRODUCTO CON MAYOR INGRESO\n");
+    printf("4.INGRESAR PRODUCTO\n");
+    printf("5.SALIR\n");
+    printf("Seleccione una opcion: ");
+
+    while(scanf("%d",&opcion) !=1){
+        printf("ERROR: Opcion no valida\n");
+        while(getchar()!='\n'){}//Limpiar Buffer 
+    
+}
+
+switch (opcion){
+case 1:
+    printf("El total de ventas es: %2.f\n",suma);
+    break;
+
+case 4:
+    printf("Ingrese el id: ");
+    fgets(codigo, sizeof(codigo), stdin);
+    codigo[strcspn(codigo, "\n")]='\0'; //Elimina salto de linea
+
+    printf("Ingrese el precio de venta: ");
+    //Limpio buffer
+    while(scanf("%f",&precio)  !=1 || precio<0){
+        printf("Error: Ingrese valores enteros positivos\n");
+        while(getchar() !='\n');//limpiamos buffer
+    }
+
+    printf("Ingrese la cantidad de venta: ");
+    while(scanf("%d",&cantidad)  !=1 || cantidad<0){
+        printf("Error: Ingrese valores enteros positivos");
+        while(getchar() !='\n');
+    }
+    suma+= precio * cantidad;
+        break;
+case 5:
+    break;//Salir
+default:
+    break;
+}
+} while (opcion!=5);
+    return 0;
+}
