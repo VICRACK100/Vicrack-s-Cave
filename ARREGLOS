@@ -1,0 +1,19 @@
+#include <stdio.h>
+#define MAX 5
+
+int main(){
+    int notas[MAX];
+    
+    //INGRESO
+    for(int i= 0; i < MAX; i++){
+        printf("Ingrese la nota del estudiante %d: ", i + 1);
+        scanf("%d", &notas[i]);
+    }
+
+    //IMPRIMIR
+    for(int i= 0; i < MAX; i++){
+        printf("La nota del estudiante %d es %d\n", i + 1,notas[i]);
+        
+    
+}return 0;
+}
