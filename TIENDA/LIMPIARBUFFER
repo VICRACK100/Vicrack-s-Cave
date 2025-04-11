@@ -1,0 +1,66 @@
+#include<stdio.h>
+#define PRODUCTOS 3
+    //Funcion limpiar buffer
+    void limpiar_buffer(){
+        while(getchar()!='\n');
+    }
+
+int main(){
+    int   codigo   [PRODUCTOS];
+    int   cantidad [PRODUCTOS];
+    float precio   [PRODUCTOS];
+    float venta    [PRODUCTOS];
+    float venta_total=0;
+
+
+    for (int i = 0; i < PRODUCTOS; i++)
+    { //Codigo del producto
+        printf("Ingrese el codigo del producto %d: ", i + 1);
+        while(scanf("%d", &codigo[i])!=1){
+            printf("ERROR, INGRESE SOLO NUMEROS\n");
+            limpiar_buffer();//Limpiar buffer
+            printf("Ingrese el codigo del producto %d: ", i + 1);
+        }
+        //Precio
+        printf("Ingrese el precio de venta: ");
+        while(scanf("%f", &precio[i]) != 1 || precio[i] < 0){
+            printf("ERROR, INGRESE VALORES VALIDOS\n");
+            limpiar_buffer();//Limpiamos buffer
+            printf("Ingrese el precio de venta: ");
+        }
+        //Cantidad
+        printf("Ingrese la cantidad vendida: ");
+        while(scanf("%d", &cantidad[i]) != 1 || cantidad[i] < 0){;
+            printf("ERROR, INGRESE VALORES VALIDOS\n");
+            limpiar_buffer(); //Limpiamos buffer
+            printf("Ingrese la cantidad vendida: ");
+    }
+    //Calculo de venta individual
+venta[i]= cantidad[i] * precio[i];
+venta_total += venta[i];
+    
+}
+//Encontrar el producto con mas cantidad vendida
+int indice_mayor_cantidad = 0;
+int indice_mayor_ingreso = 0;
+for (int i = 1; i < PRODUCTOS; i++)
+{
+    if (cantidad[i] > cantidad[indice_mayor_cantidad])
+    {
+        indice_mayor_cantidad = i;
+    }
+    if (venta[i] > venta[indice_mayor_ingreso])
+    {
+        indice_mayor_ingreso = i;
+    }
+    
+}
+
+
+printf("\nEl total de la venta fue de: %.2f$\n", venta_total);
+printf("Producto con mayor cantidad vendida: Codigo %d, Cantidad %d\n",
+       codigo[indice_mayor_cantidad], cantidad[indice_mayor_cantidad]);
+printf("Producto con mayor ingreso total: Codigo %d, Ingreso %.2f$\n",
+       codigo[indice_mayor_ingreso], venta[indice_mayor_ingreso]);
+return 0;
+}
