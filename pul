@@ -1,0 +1,37 @@
+#define NOTAS 3
+ #define ALUMNOS 5 
+ #define PROMEDIOS 3
+ #include <stdio.h>
+ int main(){
+ float asignatura1[ALUMNOS][NOTAS];
+ float asignatura2[ALUMNOS][NOTAS];
+ float asignatura3[ALUMNOS][NOTAS];
+ float promedio[ALUMNOS][PROMEDIOS];
+ float suma_alumnos;
+ float promedio_alumno[ALUMNOS];
+ 
+ // Inicializar el arreglo de promedios y sumas a 0
+for (int i = 0; i < ALUMNOS; i++)
+{
+    suma_alumnos = 0;
+    for (int j = 0; j < NOTAS; j++)
+    {
+        printf("INGRESE LA NOTA DEL ESTUDIANTE %d EN LA NOTA %d: ", i + 1, j + 1);
+        scanf("%f", &asignatura1[i][j]);
+        while (asignatura1[i][j] < 0 || asignatura1[i][j] > 10) {
+            printf("ERROR, INGRESE UNA NOTA VALIDA (0-10): ");
+            scanf("%f", &asignatura1[i][j]);
+        }
+        
+        suma_alumnos += asignatura1[i][j];
+    }
+    promedio_alumno[i] = suma_alumnos / NOTAS;
+}
+printf("\n\n");
+// Imprimir el promedio de cada alumno
+for (int i = 0; i < ALUMNOS; i++)
+{
+    printf("El promedio del estudiante %d es: %.2f\n", i + 1, promedio_alumno[i]);
+ }
+ for (int i = 0; i < ALUMNOS; i++)
+ {
