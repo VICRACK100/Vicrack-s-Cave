@@ -1,0 +1,50 @@
+#include<stdio.h>
+//PROTOTIPOS DE FUNCIONES
+void suma();
+void resta(int a, int b);
+int multiplicacion();
+int division(int , int ); //PONER EL NOMBRE DE LA VARIABLE ES OPCIONAL
+
+int main (){
+    int numero1, numero2,resultado;
+    printf("Ingrese el operando: ");
+    scanf("%d", &numero1);
+    printf("Ingrese el operando: ");
+    scanf("%d", &numero2);
+    suma();
+    resta(numero1, numero2);
+    printf ("%d / %d = %d\n", numero1, numero2, division(numero1, numero2));
+    resultado = multiplicacion();
+    printf ("El resultado de la multiplicacion es: %d\n", resultado);
+    printf("La variable resultado tiene %d\n", resultado);
+void suma(){
+int a, b;
+printf("Ingrese el primer numero: ");
+scanf("%d", &a);
+printf("Ingrese el segundo numero: ");
+scanf("%d", &b);
+printf ("La suma de %d y %d es %d\n", a,b,(a+b));
+
+}
+
+void resta(int a, int b){
+    printf("%d - %d = %d\n", a, b, (a-b));
+
+}
+
+int multiplicacion(){
+int a, b;
+printf("Ingrese el primer numero: ");
+scanf("%d", &a);
+printf("Ingrese el segundo numero: ");
+scanf("%d", &b);
+printf ("La multiplicacion de %d y %d es %d\n", a,b,(a*b));
+
+
+}
+int division(int a, int b){
+printf("El resultado de la division de %d entre %d es: %d\n", a, b, (a/b));
+
+}
+   
+}
