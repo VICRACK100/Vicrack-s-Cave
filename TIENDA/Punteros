@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include <math.h>
+void cuadrado (int num, float *valcuadrado);
+void cubo(int num, float *valcubo);
+
+int main (){
+ int numero, cantidad;
+ float cuadrados;
+ float cubos;
+
+ printf("Ingrese la cantidad de numeros: ");
+ scanf("%d", &cantidad); 
+for (int i = 0; i < cantidad; i++)
+{
+    printf("Ingrese el numero: ");
+    scanf("%d", &numero);
+    cuadrado(numero, &cuadrados);
+    cubo(numero, &cubos);
+    printf("%20s%20s%20s\n", "Numero" , "Cuadrado" , "Cubo" );
+    printf("%20d%20.2f%20.2f\n", numero , cuadrados , cubos );
+}
+
+    return 0;
+
+}
+
+
+
+
+
+void cuadrado (int num, float *valcuadrado){
+    *valcuadrado =powf(num,2);
+}
+
+void cubo(int num, float *valcubo){
+    *valcubo =  powf(num,3);
+}
